@@ -1,0 +1,18 @@
+<div class="jumbotron">
+    <h4>Resource</h4> 
+    <p> Resource REST API testing : blog list </p>  
+    <!--
+    <a ui-sref=".create" class="btn btn-primary">Create</a>
+    <a ui-sref=".delete" class="btn btn-danger">Delete</a> 
+
+    <div ui-view></div>
+    -->
+
+    <div class="list-group">
+	  <a ui-sref=".show({ id : blog._id })" ng-repeat="blog in blog_list" class="list-group-item" >{{blog.title}} : {{blog.subject}}</a>
+	  <div ng-if="blog.length == 0">No blog exist</div>
+	</div>
+
+	<div ui-view></div>
+
+</div>

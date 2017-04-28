@@ -1,0 +1,36 @@
+<div class="jumbotron">
+    <h4>Blog</h4>
+    <p>
+    	<form name="myform" novalidate>
+
+		  	<label for="titleid">Title</label>
+		  	<input id="titleid" name="title" ng-model="formData.title" type="text"  class="text-left form-control"  ng-required="true"  minlength="5" />
+		  	<div ng-if="myform.title.$touched">
+		  		<div ng-if="myform.title.$error.required" class="text-danger">Title is required</div>
+		  		<div ng-if="myform.title.$error.minlength" class="text-danger">The value entered is too short</div>
+		  	</div>
+
+			<label for="subjectid">Subject</label>
+		  	<input id="subjectid" name="subject" ng-model="formData.subject" type="text" class="text-left form-control"  ng-required="true" />
+
+		  	<error-message messages='{"required": "Subject is required."}' error="myform.subject.$error" touched="myform.subject.$touched"></error-message>
+
+		  	<label for="bodyid">Body</label>
+		  	<textarea id="bodyid" name="body" ng-model="formData.body" class="text-left form-control"  ng-required="true" rows="5"></textarea>
+
+		  	<error-message messages='{"required": "body is required."}' error="myform.body.$error" touched="myform.body.$touched"></error-message><br/>
+
+		  	<div ng-if="isCreate">
+		  		<button class="btn btn-success" ng-click="saveForm()" ng-disabled="myform.$invalid">Save</button>
+		  	</div>
+		  	<div ng-if="!isCreate">
+			  	<button class="btn btn-success" ng-click="update()" ng-disabled="myform.$invalid">update</button>
+
+			  	<button class="btn btn-success" ng-click="deleteData()" ng-disabled="myform.$invalid">delete</button>
+			</div>
+
+		  	<div ng-if="successMsg">{{successMsg}}</div>
+
+		</form>
+    </p> 
+</div>
